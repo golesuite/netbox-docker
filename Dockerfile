@@ -1,6 +1,7 @@
 FROM netboxcommunity/netbox:v3.1.3-ldap
 RUN apk update && apk upgrade && apk add --no-cache gcc libc-dev && rm -rf /var/cache/apk/*
 COPY ./plugin_requirements.txt /
+ADD ./netbox-secretstore/static/netbox_secretstore/  /opt/netbox/netbox/static/netbox_secretstore
 RUN /opt/netbox/venv/bin/pip install  --no-warn-script-location -r /plugin_requirements.txt
 RUN apk add xmlsec
 RUN /opt/netbox/venv/bin/pip install pysaml2==6.5.0 -U
