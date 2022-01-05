@@ -1,0 +1,3 @@
+netbox-secretstore
+netbox-qrcode 
+netbox-topology-views
